@@ -1,5 +1,14 @@
 # Shared utility functions (logging, helpers, etc.)
 
+import logging
+
+def setup_logging(log_level="INFO"):
+    logging.basicConfig(
+        level=log_level,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+        handlers=[logging.StreamHandler()]
+    )
+
 class Database:
     def __init__(self, connection_string):
         import pyodbc
